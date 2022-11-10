@@ -39,10 +39,10 @@ const Login = () => {
                 .then(data =>{
                     console.log(data);
                     localStorage.setItem('review-token', data.token);
-                    navigate(from, { replace: true });
+                    // navigate(from, { replace: true });
                 })
 
-                // navigate(from, { replace: true });
+                navigate(from, { replace: true });
                 form.reset();
                 setError('');
             })
@@ -76,9 +76,9 @@ const Login = () => {
                     .then(data => {
                         console.log(data);
                         localStorage.setItem('review-token', data.token);
-                        navigate(from, { replace: true });
+                        // navigate(from, { replace: true });
                     })
-                // navigate(from, { replace: true });
+                navigate(from, { replace: true });
                 // console.log(user);
             })
     }
