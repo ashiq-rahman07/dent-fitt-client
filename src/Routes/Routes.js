@@ -3,6 +3,7 @@ import Service from "../components/Service";
 import Main from "../Layaout/Main";
 import AddServices from "../Pages/AddServices";
 import AllServices from "../Pages/AllServices";
+import Blog from "../Pages/Blog";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path:'/my-reviews',
                 element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element:<Blog></Blog>
             }
 
            
