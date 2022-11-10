@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
 
-const AddReviews = ({service}) => {
-    const {user} = useContext(AuthContext)
-    const {name,title,fee,_id} = service
+const AddReviews = ({ service }) => {
+    const { user } = useContext(AuthContext)
+    const { name, title, fee, _id } = service
     const handleAddReview = event => {
         event.preventDefault();
         const form = event.target;
@@ -24,7 +24,7 @@ const AddReviews = ({service}) => {
             reviewText
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://dental-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

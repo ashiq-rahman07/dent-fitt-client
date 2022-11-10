@@ -13,7 +13,7 @@ const Service = () => {
     const { img, name, title, description, _id } = service;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service-reviews?service=${_id}`)
+        fetch(`https://dental-server.vercel.app/service-reviews?service=${_id}`)
             .then(res => res.json())
             .then(data => setServiceReview(data))
     }, [_id])
@@ -21,7 +21,7 @@ const Service = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this order');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://dental-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('review-token')}`

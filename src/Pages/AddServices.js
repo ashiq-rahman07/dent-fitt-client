@@ -9,7 +9,7 @@ const AddServices = () => {
         event.preventDefault();
         console.log(service);
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://dental-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -55,13 +55,13 @@ const AddServices = () => {
                         </div>
                         <div className="col-span-full">
                             <label htmlFor="description" className="text-sm">Description</label>
-                            
-                            <input onBlur={handleInputBlur} type="text" name="description" placeholder="Description" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 "/>
+
+                            <input onBlur={handleInputBlur} type="text" name="description" placeholder="Description" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 " />
                         </div>
-                       
+
                     </div>
                 </fieldset>
-               <button className='bg-indigo-800' type='submit'>Add Service</button>
+                <button className='bg-indigo-800' type='submit'>Add Service</button>
             </form>
         </section>
     );

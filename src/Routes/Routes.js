@@ -12,47 +12,47 @@ import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main></Main>,
-        children:[
+        path: '/',
+        element: <Main></Main>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
 
             },
             {
-                path:'/services',
-                element:<AllServices></AllServices>,
-                loader: () => fetch('http://localhost:5000/all-services')
+                path: '/services',
+                element: <AllServices></AllServices>,
+                loader: () => fetch('https://dental-server.vercel.app/all-services')
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
             },
             {
-                path:'/add-services',
+                path: '/add-services',
                 element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
 
             },
             {
-                path:'/services/:id',
-                element:<Service></Service>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                path: '/services/:id',
+                element: <Service></Service>,
+                loader: ({ params }) => fetch(`https://dental-server.vercel.app/services/${params.id}`)
             },
             {
-                path:'/my-reviews',
-                element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+                path: '/my-reviews',
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: '/blog',
-                element:<Blog></Blog>
+                element: <Blog></Blog>
             }
 
-           
+
         ]
     }
 ])
