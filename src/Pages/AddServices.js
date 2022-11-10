@@ -37,8 +37,8 @@ const AddServices = () => {
             <form onSubmit={handleAddUser} className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
                 <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                     <div className="space-y-2 col-span-full lg:col-span-1">
-                        <p className="font-medium">Personal Inormation</p>
-                        <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
+                        <p className="font-medium">Add Your Service</p>
+                        <p className="text-lg">please add service name, service title,also image url and description</p>
                     </div>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                         <div className="col-span-full sm:col-span-3">
@@ -61,7 +61,7 @@ const AddServices = () => {
                        
                     </div>
                 </fieldset>
-               <button type='submit'>Add Service</button>
+               <button className='bg-indigo-800' type='submit'>Add Service</button>
             </form>
         </section>
     );
