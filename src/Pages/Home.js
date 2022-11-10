@@ -5,8 +5,10 @@ import ExtraSection from '../components/ExtraSection';
 import Hero from '../components/Hero';
 import NewHero from '../components/NewHero';
 import Services from '../components/Services';
+import useTitle from '../Hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
     return (
         <div>
            

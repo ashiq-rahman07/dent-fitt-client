@@ -2,8 +2,10 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
 import Services from '../components/Services';
+import useTitle from '../Hooks/useTitle';
 
 const AllServices = () => {
+  useTitle('allservices');
   const allService = useLoaderData();
     return (
       <div className='w-9/12 mx-auto flex flex-col justify-center'>
