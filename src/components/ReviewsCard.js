@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReviewsCard = ({review}) => {
+const ReviewsCard = ({ review, handleDelete }) => {
   
     const { reviewText, ratings, email, author, fee, serviceName, service, _id, authorImg
  } = review;
@@ -17,6 +17,7 @@ const ReviewsCard = ({review}) => {
             <div>
                 <p>{reviewText}</p>
             </div>
+            <button onClick={() => handleDelete(_id)}>Delete Review</button>
         </div>
     );
 };

@@ -46,7 +46,7 @@ const AddReviews = ({service}) => {
     return (
         <div>
             <form className='w-3/5  mx-auto' onSubmit={handleAddReview}>
-                <h2 className="text-2xl bg-purple-400 text-center w-3/5 mx-auto my-3 rounded-lg font-semibold px-2">You are add review for this: {name} service</h2>
+                <h2 className="text-2xl bg-purple-400 text-center w-3/5 mx-auto my-3 rounded-lg font-semibold px-2">Please add review for this: {name} service</h2>
                 {/* <h4 className="text-3xl">Price: ${fee}</h4> */}
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name="authorName" type="text" placeholder="author Name" defaultValue={user?.displayName} className="input input-ghost w-full  input-bordered" />

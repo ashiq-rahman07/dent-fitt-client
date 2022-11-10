@@ -17,6 +17,26 @@ const Service = () => {
             .then(res => res.json())
             .then(data => setServiceReview(data))
     }, [_id])
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure, you want to cancel this order');
+        if (proceed) {
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('review-token')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remaining = serviceReview.filter(odr => odr._id !== id);
+                        setServiceReview(remaining);
+                    }
+                })
+        }
+    }
     return (
         <div>
             <h2 className='text-xl text-center my-5 bg-purple-300 w-2/5 mx-auto py-1 font-semibold text-gray-900'>{name}</h2>
@@ -37,7 +57,7 @@ const Service = () => {
             <h2 className='text-center bg-purple-300 w-2/5 py-1 text-xl mx-auto font-semibold px-2 rounded-lg shadow-lg my-5 '>Happy Patient Reviews</h2>
             <div className='grid md:grid-cols-3 w-3/5 gap-5 mx-auto my-5'>
                 {
-                    serviceReview.map(review => <ReviewsCard key={review._id} review={review}></ReviewsCard>)
+                    serviceReview.map(review => <ReviewsCard key={review._id} review={review} handleDelete={handleDelete}></ReviewsCard>)
                 }
             </div>
             <div>
