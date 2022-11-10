@@ -11,24 +11,36 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     const from = location.state?.from?.pathname || '/';
 
-    const handleSubmit = event =>{
+    const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser)
+                //get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                .then(res=>res.json())
+                .then(data =>{
+                    console.log(data)
+                })
+
+                // navigate(from, { replace: true });
                 form.reset();
                 setError('');
-                navigate(from, { replace: true });
-                // if (user.emailVerified) {
-                //     navigate(from, { replace: true });
-                // }
-                // else {
-                //     toast.error('Your email is not verified. Please verify your email address.')
-                // }
             })
             .catch(error => {
                 console.error(error)
@@ -51,13 +63,13 @@ const Login = () => {
             <h1 className="text-2xl font-bold text-center">Login</h1>
             <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-lg">
-                    <label htmlFor="email"  className="block dark:text-gray-400">   <em>mail</em></label>
+                    <label htmlFor="email" className="block dark:text-gray-400">   <em>mail</em></label>
                     <input type="email" name="email" id="username" placeholder="email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 </div>
                 <div className="space-y-1 text-lg">
                     <label htmlFor="password" className="block dark:text-gray-400">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                    
+
                 </div>
                 <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign in</button>
             </form>
