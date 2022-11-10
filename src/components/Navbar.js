@@ -20,9 +20,9 @@ const Navbar = () => {
                 <div className='flex items-center'>
                     <h1 className='text-3xl font-bold mr-4 sm:text-4xl'>BRAND.</h1>
                     <ul className='hidden md:flex'>
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/services'>Services</Link></li>
-                        <li><Link to='/blog'>Blog</Link></li>
+                        <li><Link to='/' className='font-semibold'>Home</Link></li>
+                        <li><Link to='/services' className='font-semibold'>Services</Link></li>
+                        <li><Link to='/blog' className='font-semibold'>Blog</Link></li>
 
 
 
@@ -34,13 +34,13 @@ const Navbar = () => {
                         user?.uid ?
                             <>
                                 <Link className='text-lg font-medium hover:bg-indigo-400 px-2 py-1 rounded' to='/my-reviews'>My Reviews</Link>
-                                <Link className='mx-3 text-lg font-medium hover:bg-indigo-400 px-2 py-1 rounded' to='/add-services'>Add Services</Link>
+                                <Link className='text-lg font-medium hover:bg-indigo-400 px-2 py-1 rounded' to='/add-services'>Add Services</Link>
                                 <button onClick={handleLogOut}>Log Out</button>
                             </>
                             :
                             <>
-                            <Link to='/login'>Sign In</Link>
-                            <Link to='/register' className='mx-4'>Sign Up</Link>
+                                <Link to='/login' ><button className='px-3 py-1'>Sign In</button></Link>
+                                <Link to='/register' className='mx-2 mr-5'><button className='px-3 py-1'>Sign Up</button></Link>
                                 {/* <button className='mr-2 px-8 py-3 '>Sign In</button>
                                 <button className='px-8 py-3'>Sign Up</button> */}
                             </>
